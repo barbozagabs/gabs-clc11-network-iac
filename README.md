@@ -15,7 +15,6 @@ macOS users can install using [Homebrew]:
 ```bash
 brew install terraform-docs
 ```
-
 or
 
 ```bash
