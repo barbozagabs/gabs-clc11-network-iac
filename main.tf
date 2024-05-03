@@ -16,21 +16,13 @@ resource "aws_flow_log" "flow_log" {
 }
 
 ### ADICIONANDO SECURITY GROUP SEPARADAMENTE ###
-#resource "aws_default_security_group" "default" {
-#  vpc_id = aws_vpc.issue_vpc.id
-#  ingress {
-#    protocol  = "-1"
-#    self      = true
-#    from_port = 0
-#    to_port   = 0
-#  }
-#  egress {
-#    from_port   = 0
-#    to_port     = 0
-#    protocol    = "-1"
-#    cidr_blocks = var.vpc_range
-#  }
-#}
+resource "aws_default_security_group" "default" {
+  vpc_id = aws_vpc.vpc_network.id
+  
+  tags = {
+    Name = "my-iac-sg"
+  }
+}
 
 ### CREATE SUBNET PUBLIC E PRIVADA 1A ##
 resource "aws_subnet" "subnet_privada_1a" {
