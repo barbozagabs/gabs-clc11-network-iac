@@ -9,7 +9,7 @@ resource "aws_vpc" "vpc_network" {
 
 ### ADICIONANDO LOG PARA VPC ###
 resource "aws_flow_log" "flow_log" {
-  log_destination      = "arn:aws:s3:::gabs-clc11-tfstatee"
+  log_destination      = "arn:aws:s3:::gabs-clc11-tfstate"
   log_destination_type = "s3"
   traffic_type         = "ALL"
   vpc_id               = aws_vpc.vpc_network.id
